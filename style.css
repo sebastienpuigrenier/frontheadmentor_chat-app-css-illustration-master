@@ -1,0 +1,471 @@
+/*
+** Reset browser
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/*
+** General data (font, color, etc.)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+:root {
+    /* colors */
+    /* sub-heading at the top of the app UI */
+        --color_pale-violet: hsl(276, 100%, 81%);
+    /* chat on the left */
+        --color_moderate-violet: hsl(276, 55%, 52%);
+    /* chat on the right */
+        --color_dark-violet: hsl(271, 15%, 43%);
+    /* placeholder text */
+        --txt_grayish-blue: hsl(206, 6%, 79%);
+    /* main heading */
+        --txt_very-dark-violet: hsl(271, 36%, 24%);
+    /* paragraph */
+        --txt-grayish-violet: hsl(270, 7%, 64%);
+    /* gradient left */
+        --grad-left: hsl(293, 100%, 63%);
+    /*gradient right */
+        --grad-right: hsl(264, 100%, 61%);
+    /* app bckground */
+        --app-background: hsl(270, 20%, 96%);
+    /* submit btn */
+        --app-submitbtn: hsl(271, 36%, 24%);
+    /* radio btn outline */
+        --app-radiobtn: hsl(289, 100%, 72%);
+        /* calc to disable svg to move */
+        --position_bg: calc(-90px - ((1440px - 100vw) / 4));
+        --position_bg_tab: calc(-25px - ((1100px - 100vw) / 2));
+        --position_bg_mobile: calc(40px - ((1100px - 100vw) / 2));
+}
+
+
+/*
+** General configuration
+*/
+
+body{
+    font-family: "Rubik", sans-serif;
+    font-size: 16px;
+
+    background-color: var(--app-background);
+}
+
+h1, h2{
+    color: var(--txt_very-dark-violet);
+    font-size: 2.4em;
+}
+
+.img{
+    max-width: 100%;
+}
+
+/*
+** Website Design
+*/
+
+.vertical-oval{
+    content: "";
+    width: 512px;
+    height: 1000px;
+    background: linear-gradient(45deg, var(--grad-right) 0%, var(--grad-left) 100%);
+    border-radius: 999999999999px;
+
+    position: absolute;
+    top: -500px;
+    left: var(--position_bg_mobile);
+    z-index: -2;
+}
+
+.container{
+    width: 85%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4em;
+}
+
+.row{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.phone{
+    width: 247px;
+    height: 505px;
+
+    margin-top: 60px;
+
+    border: 11px solid white;
+    border-radius: 25px;
+
+    background-color: var(--app-background);
+
+    position: relative;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    box-shadow: rgb(0 0 90 / 10%) 10px 20px 25px;
+}
+
+.oval{
+    content: "";
+    width: 130px;
+    height: 80px;
+
+    background: white;
+    border-radius: 14px;
+
+    position: absolute;
+    top: -63px;
+    left: 50px;
+    z-index: 2;
+}
+
+.id_dest{
+    color: white;
+    border-radius: 18px 18px 10px 10px;
+
+    background: linear-gradient(90deg, var(--grad-right) 0%, var(--grad-left) 100%);
+
+    padding-top: 27px;
+    padding-bottom: 0.75em;
+
+    display: flex;
+    margin-bottom: 0.6em;
+}
+
+.id_dest__row{
+    width: 90%;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-chevron-left,
+.fa-ellipsis-v{
+    color: var(--color_pale-violet);
+}
+
+.dest-user{
+    display: flex;
+    align-content: center;
+}
+
+.id_dest .row{
+    width: 80%;
+    margin: 0 auto;
+
+    align-items: center;
+}
+
+.id-row{
+    display: flex;
+    
+    width: 100%;
+    justify-content: space-between;
+}
+
+.avatar{
+    width: 24px;
+    height: 24px;
+    margin: 0 0.6em;
+
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.name{
+    font-weight: bolder;
+    font-size: 0.7em;
+    color: var(--color_pale-violet);
+}
+
+.status{
+    font-size: 0.45em;
+    font-weight: lighter;
+    color: var(--color_pale-violet);
+}
+
+.messages{
+    display: flex;
+    flex-direction: column;
+}
+
+.message{
+    max-width: 55%;
+    padding: 6px;
+    margin: 5px 8px 5px 8px;
+
+    font-size: 0.5em;
+}
+
+.send{
+    color: var(--color_dark-violet);
+    border-radius: 5px 5px 0px 5px;
+
+    background-color: white;
+
+    align-self: flex-end;
+}
+
+.received{
+    color: var(--color_moderate-violet);
+    border-radius: 5px 5px 5px 0;
+
+    background-color: #ede5f4;
+}
+
+.photos{
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 75%;
+    background-color: transparent !important;
+}
+
+.photos img{
+    width: 40px;
+    border-radius: 5px;
+}
+
+.send +.received,
+.received +.send{
+    margin-top: 10px;
+}
+
+.offer{
+    width: 73%;
+    margin: 3px;
+    padding: 10px;
+
+    border-radius: 8px 8px 8px 0;
+
+    color: white;
+    font-size: 0.75em;
+
+    background: linear-gradient(90deg, var(--grad-left) 0%, var(--grad-right) 100%);
+}
+
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: var(--app-radiobtn);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: var(--grad-right);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+.duration{
+    width: 100%;
+
+    color: var(--color_pale-violet);
+    font-weight: lighter;
+    font-size: 0.8em;
+}
+
+.price{
+    font-size: 1em;
+    font-weight: 700;
+
+    margin-right: 5px;
+}
+
+.typeAMessage{
+    width: 90%;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 99999px;
+    background-color: white;
+
+    margin: 8px auto;
+}
+
+.typeAMessage p{
+    font-size: 0.7em;
+    color: var(--txt_grayish-blue);
+
+    margin: 0 5px;
+}
+
+
+.fa-chevron-circle-right{
+    color: var(--app-submitbtn);
+    zoom: 2;
+    margin: 0 2px;
+}
+
+main{
+    text-align: center;
+    line-height: 1.8;
+}
+
+
+
+main p{
+    color: var(--txt-grayish-violet);
+    font-size: 1em;
+
+    margin: 1em auto;
+}
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+/*
+**
+** @media
+**
+*/
+
+/* breacking point for oval position */
+@media (min-width: 800px) {
+    .vertical-oval {
+    left: var(--position_bg_tab);
+    }
+}
+
+
+@media (min-width: 1100px) {
+    .vertical-oval {
+        top: -300px;
+    left: var(--position_bg);
+    }
+
+    .container {
+        width: 58vw;
+        height: 800px;
+        gap: 8em;
+
+        margin-left: 25vw;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .phone {
+        margin-top: 0;
+    }
+
+    main {
+        text-align: left;
+    }
+}
+
+
+
+
+/*
+**
+** Animations of the messages on the phone
+**
+*/
+
+
+.animation-01{
+    animation:
+        reset-phone 0.5s ease-in 1s forwards, /* opacity 0 to hide the phone after 1sec */
+        msg-received 0.5s ease-in 4s forwards; /* pop message from the left */
+} 
+
+
+.animation-02{
+    animation:
+        reset-phone 0.5s ease-in 1s forwards, /* opacity 0 to hide the phone after 1sec */
+        msg-received 0.5s ease-in 5s forwards;/* pop message from the left */
+}
+
+.animation-03{
+    animation:
+        reset-phone 0.5s ease-in 1s forwards, /* opacity 0 to hide the phone after 1sec */
+        msg-sent 0.5s ease-in 6s forwards;/* pop message from the right */
+}
+
+.animation-04{
+    animation:
+        reset-phone 0.5s ease-in 1s forwards, /* opacity 0 to hide the phone after 1sec */
+        msg-sent 0.5s ease-in 7s forwards;/* pop message from the right */
+}
+
+.animation-05{
+    animation:
+        reset-phone 0.5s ease-in 1s forwards, /* opacity 0 to hide the phone after 1sec */
+        msg-received 0.5s ease-in 8s forwards;/* pop message from the left */
+}
+
+
+@keyframes reset-phone {
+    0% {
+        opacity: 0;
+        transform: translate(-100%, 100%) scale(0);
+      }
+    
+      100% {
+        opacity: 0;
+        transform: translate(0) scale(1);
+      }
+  }
+
+@keyframes msg-received {
+    0% {
+      opacity: 0;
+      transform: translate(-100%, 100%) scale(0);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translate(0) scale(1);
+    }
+  }
+
+
+  @keyframes msg-sent {
+    0% {
+      opacity: 0;
+      transform: translate(100%, 100%) scale(0);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translate(0) scale(1);
+    }
+  }
